@@ -80,7 +80,8 @@ public class TestMap {
 			Persona persona3 = new Persona(3L, "Pedro");
 			Persona persona4 = new Persona(4L, "Luis");
 
-			Map<Long, Persona> personas = new TreeMap<>();
+			//Map<Long, Persona> personas = new TreeMap<>();
+			Map<Long, Persona> personas = new TreeMap();
 
 			personas.put(4L, persona4);
 			personas.put(2L, persona2);
@@ -106,7 +107,7 @@ public class TestMap {
 			Persona persona3 = new Persona(3L, "Pedro");
 			Persona persona4 = new Persona(4L, "Luis");
 
-			Map<Long, Persona> personas = new LinkedHashMap<>();
+			Map<Long, Persona> personas = new LinkedHashMap<Long, Persona>();
 
 			personas.put(4L, persona4);
 			personas.put(2L, persona2);

@@ -1,7 +1,7 @@
 package collections;
 
-//implements Comparable<Persona>
-public class Persona {
+ 
+public class Persona implements Comparable<Persona>{
 
 	private Long codigo;
 
@@ -55,15 +55,12 @@ public class Persona {
 
 	@Override
 	public int hashCode() {
-
 		return this.getCodigo().intValue();
-
 	}
 
-	/*
-	 * @Override public int compareTo(Persona o) {
-	 * 
-	 * return this.getCodigo().intValue() - o.getCodigo().intValue(); }
-	 */
+	@Override
+	public int compareTo(Persona o) {
+		return this.getCodigo().intValue() - o.getCodigo().intValue(); 
+	}
 
 }

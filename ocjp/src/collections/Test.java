@@ -28,7 +28,8 @@ public class Test {
 			Persona persona2 = new Persona(2L, "Rosa");
 			Persona persona3 = new Persona(3L, "Pedro");
 			Persona persona4 = new Persona(4L, "Luis");
-			List<Persona> personas = new ArrayList<>();
+			//List<Persona> personas = new ArrayList<>();
+			List<Persona> personas = new ArrayList<Persona>();
 			personas.add(persona1);
 			personas.add(persona3);
 			personas.add(persona4);
