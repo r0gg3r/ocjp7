@@ -5,10 +5,17 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.Vector;
 
 public class Test {
 
@@ -16,163 +23,161 @@ public class Test {
 
 		{
 
-			Persona persona1 = new Persona(1L, "Roger");
-			Persona persona2 = new Persona(2L, "Juan");
-			Persona persona3 = new Persona(3L, "Giovana");
-			Persona persona4 = new Persona(4L, "Giovana");
-			List<Persona> personas = new ArrayList<Persona>();
+			System.out.println(" ***** ArrayList ***** ");
+			Persona persona1 = new Persona(1L, "Juan");
+			Persona persona2 = new Persona(2L, "Rosa");
+			Persona persona3 = new Persona(3L, "Pedro");
+			Persona persona4 = new Persona(4L, "Luis");
+			List<Persona> personas = new ArrayList<>();
+			personas.add(persona1);
 			personas.add(persona3);
 			personas.add(persona4);
-			personas.add(persona1);
 			personas.add(persona2);
-			// ordenando una colecci�n
-			//Collections.sort(personas, new SortPersonas());
+
+			// Collections.sort(personas);
+
+			Collections.sort(personas, new SortPersona());
+			for (Persona persona : personas) {
+				System.out.println("persona : " + persona);
+			}
+
+		}
+
+		{
+			System.out.println(" ***** Vector **** ");
+
+			Persona persona1 = new Persona(1L, "Juan");
+			Persona persona2 = new Persona(2L, "Rosa");
+			Persona persona3 = new Persona(3L, "Pedro");
+			Persona persona4 = new Persona(4L, "Luis");
+
+			List<Persona> personas = new Vector<Persona>();
+			personas.add(persona4);
+			personas.add(persona2);
+			personas.add(persona1);
+			personas.add(persona3);
+
+			// Collections.sort(personas);
+
+			Collections.sort(personas, new SortPersona());
 
 			for (Persona persona : personas) {
-				System.out.println(persona);
+				System.out.println("persona : " + persona);
 			}
 
 		}
-		
-		
-		
 		{
-			
-			System.out.println("  **************** HashMap  ******************");
+			System.out.println(" ***** LinkedArrayList **** ");
 
-			Persona persona1 = new Persona(1L, "Roger");
-			Persona persona2 = new Persona(2L, "Juan");
-			Persona persona3 = new Persona(3L, "Giovana");
-			Persona persona4 = new Persona(4L, "Pedro");
-			HashMap<Integer,Persona> personas = new HashMap<Integer,Persona>();
+			Persona persona1 = new Persona(1L, "Juan");
+			Persona persona2 = new Persona(2L, "Rosa");
+			Persona persona3 = new Persona(3L, "Pedro");
+			Persona persona4 = new Persona(4L, "Luis");
 
-			personas.put(3,persona3);
-			personas.put(4,persona4);
-			personas.put(1,persona1);
-			personas.put(2,persona2);
-			
-			Set<Integer> keys =   personas.keySet();
-			for (Integer key : keys) {
-			 System.out.println(  personas.get(key) );
-			}
-			
-			System.out.println("  **************** HashMap  2 ******************");
-			HashMap<String,String> strings = new HashMap<String,String>();
-			
-			strings.put("2", " persona 2");
-			strings.put("1", " persona 1");
-			strings.put("3", " persona 3");
-			strings.put("4", " persona 4");
-			Set<String> keys2   =  strings.keySet();
-			for (String key2 : keys2) {
-				
-				 System.out.println(strings.get(key2) );
-				
+			List<Persona> personas = new LinkedList<Persona>();
+			personas.add(persona1);
+			personas.add(persona3);
+			personas.add(persona4);
+			personas.add(persona2);
+
+			// Collections.sort(personas);
+			// Collections.sort(personas, new SortPersona());
+
+			for (Persona persona : personas) {
+				System.out.println("persona : " + persona);
 			}
 
 		}
+
+		{
+
+			// Unsorted y unordered(no es clasificada y no es ordenada)
+			// utiliza el hashcode y el equals al momneto de insertar un objeto
+			// a la coleccion
+			// no admite repetidos según los metodos equals y hashcode y los
+			// ordena
+
+			// si hashcode y equals no están implementados EL ORDEN ES
+			// IMPREDECIBLE
+
+			System.out.println(" ***** HahSet **** ");
+			Persona persona1 = new Persona(1L, "Juan");
+			Persona persona2 = new Persona(2L, "Rosa");
+			Persona persona3 = new Persona(3L, "Pedro");
+			Persona persona4 = new Persona(4L, "Luis");
+			Persona persona5 = new Persona(4L, "Luis");
+
+			Set<Persona> personas = new HashSet<Persona>();
+			personas.add(persona1);
+			personas.add(persona3);
+			personas.add(persona4);
+			personas.add(persona2);
+			personas.add(persona5);
+
+			for (Persona persona : personas) {
+				System.out.println("persona : " + persona);
+			}
+
+		}
+
+		{
+
+			// Unsorted y unordered(no es clasificada y no es ordenada)
+			// mantiene el orden en que los elementos fueron insertados
+
+			System.out.println(" ***** LinkedHahSet **** ");
+			Persona persona1 = new Persona(1L, "Juan");
+			Persona persona2 = new Persona(2L, "Rosa");
+			Persona persona3 = new Persona(3L, "Pedro");
+			Persona persona4 = new Persona(4L, "Luis");
+			Persona persona5 = new Persona(4L, "Luis");
+
+			Set<Persona> personas = new LinkedHashSet<Persona>();
+
+			personas.add(persona1);
+			personas.add(persona3);
+			personas.add(persona4);
+			personas.add(persona2);
+			personas.add(persona5);
+
+			for (Persona persona : personas) {
+				System.out.println("persona : " + persona);
+			}
+
+		}
+
+		{
+
+			// Unsorted y unordered(no es clasificada y no es ordenada)
+			// mantiene el orden en que los elementos fueron insertados
+
+			System.out.println(" ***** TreeSet **** ");
+			Persona persona1 = new Persona(1L, "Juan");
+			Persona persona2 = new Persona(2L, "Rosa");
+			Persona persona3 = new Persona(3L, "Pedro");
+			Persona persona4 = new Persona(4L, "Luis");
+			Persona persona5 = new Persona(4L, "Luis");
+
+			Set<Persona> personas = new TreeSet<Persona>( new SortPersona());
+
+			personas.add(persona1);
+			personas.add(persona3);
+			personas.add(persona4);
+			personas.add(persona2);
+			personas.add(persona5);
+
+			for (Persona persona : personas) {
+				System.out.println("persona : " + persona);
+			}
+
+		}
+
 		
-{
-
-			System.out.println("  **************** HasTable  ******************");
-
-			Persona persona1 = new Persona(1L, "Roger");
-			Persona persona2 = new Persona(2L, "Juan");
-			Persona persona3 = new Persona(3L, "Giovana");
-			Persona persona4 = new Persona(4L, "Pedro");
-			
-			Hashtable<Persona, Persona> personas = new Hashtable<Persona, Persona>();
-
-			personas.put(persona3, persona3);
-			personas.put(persona4, persona4);
-			personas.put(persona1, persona1);
-			personas.put(persona2, persona2);
-
-			Set<Persona> keys = personas.keySet();
-			for (Persona key : keys) {
-				System.out.println(personas.get(key));
-			}
-
-		}
-		
 
 	}
+
+
 
 }
 
-//implements Comparable<Persona>
-class Persona  {
 
-	private Long codigo;
-
-	private String nombre;
-
-	public Persona() {
-
-	}
-
-	public Persona(Long codigo, String nombre) {
-		this.codigo = codigo;
-		this.nombre = nombre;
-	}
-
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	@Override
-	public String toString() {
-		return "{ codigo:" + this.codigo + ", descripcion:" + this.nombre
-				+ " }";
-	}
-
-	/*@Override
-	public boolean equals(Object obj) {
-
-		if (this == obj) {
-			return true;
-		}
-
-		if (obj instanceof Persona) {
-			this.getCodigo().equals(((Persona) obj).getCodigo());
-		}
-
-		return false;
-
-	}
-
-	@Override
-	public int hashCode() {
-
-		return this.getCodigo().intValue();
-
-	}*/
-
-	/*@Override
-	public int compareTo(Persona o) {
-
-		return this.getCodigo().intValue() - o.getCodigo().intValue();
-	}*/
-
-}
-
-class SortPersonas implements Comparator<Persona> {
-
-	@Override
-	public int compare(Persona o1, Persona o2) {
-		return o1.getCodigo().compareTo(o2.getCodigo());
-	}
-
-}
