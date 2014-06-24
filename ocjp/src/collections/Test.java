@@ -22,6 +22,8 @@ public class Test {
 	public static void main(String[] args) {
 
 		{
+			
+			
 
 			System.out.println(" ***** ArrayList ***** ");
 			Persona persona1 = new Persona(1L, "Juan");
@@ -29,7 +31,8 @@ public class Test {
 			Persona persona3 = new Persona(3L, "Pedro");
 			Persona persona4 = new Persona(4L, "Luis");
 			//List<Persona> personas = new ArrayList<>();
-			List<Persona> personas = new ArrayList<Persona>();
+			//List<Persona> personas = new ArrayList<Persona>();
+			List<Persona> personas = new ArrayList<Persona>(3);
 			personas.add(persona1);
 			personas.add(persona3);
 			personas.add(persona4);
